@@ -70,38 +70,65 @@ header {
 	}
 
 	nav {
-		display:flex;
-		align-items:center;
-		ul {
-			display:flex;
-			list-style-type: none;
-			gap:5px;
-			li {
-				display:inline-block;
-				a {
-					display:inline-block;
-					padding:10px 20px;
-					color:var(--base);
-					&:hover {
-						background-color: var(--base-100);
-						border-radius:10px;
-						text-decoration:none;
-					}
-				}
-			}
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;    	
+		
+		.navbar-links ul {
+			list-style:outside;
+			display:block;
 		}
-    
-    	.mobile-toggle {
-        	display:none;
-        	color:var(--base-800);
-        	padding:10px;
-       		@media (max-width:768px){
-            	display:inline-block;
-            	position:absolute;
-            	top:20px;
-            	right:20px;
-        	}
-    	}
+		
+		.navbar-links ul li {
+			position:relative;
+			padding: 0 1rem;
+		}
+		.navbar-links ul li a {
+			color:var(--base-800);
+			text-decoration: none;
+		}
+		.dropdown {
+			position: fixed;
+			display:block;
+		}
+		
+		.dropbtn {
+			cursor: pointer;
+			color: black;
+			text-decoration: none;
+			padding: 0.5rem 7rem;
+		}
+		
+		.dropdown-content {
+			display: block;
+			position:absolute;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			background-color: #f9f9f9;
+			z-index: 1;
+		}
+		
+		.dropdown-content a {
+			color: black;
+			padding: 12px ;
+			text-decoration: none;
+			display: block;
+		}
+		
+		.dropdown-content a:hover {
+			background-color: #ddd;
+		}
+		
+		.dropdown:hover .dropdown-content {
+			display: none;
+		}
+		
+		.toggle-button {
+			display: flex;
+			font-size: 2rem;
+			color: black;
+		}
 	}
 	@media (max-width: 1024px) {
 	flex-direction:column;
@@ -403,7 +430,7 @@ h3 {
 		display:grid;
 		grid-gap:30px;
 		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: repeat(4, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 		height:960px;
 		@media(max-width:1024px){
 			grid-template-rows: repeat(8, 1fr);
@@ -434,11 +461,11 @@ h3 {
 				}
 			}
 			@media(max-width:768px){
-				height:240px;
+				height:300px;
 			}
 			&:nth-child(1) {
-				grid-column: span 2;
-				grid-row: span 2;
+				grid-column: span 3;
+				grid-row: span 5;
 				@media(max-width:1024px){
 					grid-column: span 2;
 					grid-row: span 2;
@@ -446,13 +473,13 @@ h3 {
 			}
 			&:nth-child(2) {
 				grid-column: span 2;
-				grid-row: span 1;
+				grid-row: span 5;
 				@media(max-width:1024px){
 					grid-column: span 3;
 					grid-row: span 2;
 				}
 			}
-			&:nth-child(3) {
+			/* &:nth-child(3) {
 				grid-column: span 1;
 				grid-row: span 1;
 				@media(max-width:1024px){
@@ -483,7 +510,7 @@ h3 {
 					grid-column: span 5;
 					grid-row: span 2;
 				}
-			}
+			} */
 		}
 	}
 }
@@ -583,5 +610,43 @@ h3 {
 			}
 		}
 	}
+}
+/* Floating Action Button Styles */
+.fab {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    bottom: 40px;
+    right: 40px;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 50px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover Effect for FAB */
+.fab:hover {
+    background-color:rgb(28, 28, 22);
+}
+
+.footer_section {
+	background-color: #333;
+	color: #fff;
+	padding: 20px 0;
+}
+
+.footer_section p {
+	margin: 0;
+	font-size: 14px;
+}
+
+.footer_section .text-center {
+	text-align: center;
 }
      
